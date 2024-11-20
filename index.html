@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost Animation</title>
+  <!-- <style>
+    /* Basic Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #161616;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Ghost Styles */
+    .ghost {
+      position: relative;
+      width: 90px;
+      height: 120px;
+    }
+
+    .ghost__head {
+      position: relative;
+      width: 100%;
+      height: 90px;
+      background: white;
+      border-radius: 50% 50% 0 0;
+      overflow: hidden;
+    }
+
+    .ghost__eyes {
+      position: absolute;
+      top: 30px;
+      left: 25%;
+      width: 15px;
+      height: 15px;
+      background: #161616;
+      border-radius: 50%;
+      box-shadow: 40px 0 0 #161616;
+    }
+
+    .ghost__mouth {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 10px;
+      background: #161616;
+      border-radius: 50%;
+    }
+
+    .ghost__tail {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: white;
+      border-radius: 40px 40px 5px 5px;
+      overflow: hidden;
+    }
+
+    .ghost__rip {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 15px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: -30px 0 0 white, 30px 0 0 white, 60px 0 0 white;
+    }
+  </style> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="ghost" class="ghost">
+    <div class="ghost__head">
+      <div class="ghost__eyes"></div>
+      <div class="ghost__mouth"></div>
+    </div>
+    <div class="ghost__tail">
+      <div class="ghost__rip"></div>
+    </div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur
+          in="SourceGraphic"
+          stdDeviation="10"
+          result="ghost-blur" />
+        <feColorMatrix
+          in="ghost-blur"
+          mode="matrix"
+          values="
+                  1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 16 -7"
+          result="ghost-gooey" />
+      </filter>
+    </defs>
+  </svg>
+  <script src="./index.js"></script>
+</body>
+</html>
